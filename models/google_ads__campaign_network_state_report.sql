@@ -4,7 +4,7 @@ with stats as (
 
     select *
     from {{ var('campaign_network_state_stats') }}
-),
+)
 
 select *
 from stats
