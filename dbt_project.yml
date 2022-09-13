@@ -18,6 +18,7 @@ vars:
     campaign_stats: "{{ ref('stg_google_ads__campaign_stats') }}"
     keyword_stats: "{{ ref('stg_google_ads__keyword_stats') }}"
     account_stats: "{{ ref('stg_google_ads__account_stats') }}"
+    campaign_network_state_stats: "{{ ref('stg_google_ads__campaign_network_state_stats') }}"
 
   google_auto_tagging_enabled: false
 
