@@ -233,8 +233,8 @@ models:
         description: "{{ doc('clicks') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
-        
-  - name: campaign_network_state_stats
+
+  - name: google_ads__campaign_network_state_report
     description: Each record represents the daily performance of an account in Google Ads broken down to the ad network and device type.
     tests:
       - dbt_utils.unique_combination_of_columns:
