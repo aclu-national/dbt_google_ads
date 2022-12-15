@@ -233,3 +233,41 @@ models:
         description: "{{ doc('clicks') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+
+  - name: google_ads__campaign_network_state_report
+    description: Each record represents the daily performance of an account in Google Ads broken down to the ad network and device type.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - account_id
+            - campaign_id
+            - ad_network_type
+            - state_name
+            - date_day
+    columns:
+      - name: account_id
+        description: "{{ doc('external_customer_id') }}"
+        tests:
+          - not_null
+      - name: date_day
+        description: "{{ doc('date') }}"
+        tests:
+          - not_null
+      - name: ad_network_type
+        description: "{{ doc('ad_network_type') }}"
+      - name: campaign_id
+        description: "{{ doc('campaign_id') }}"
+      - name: campaign_name
+        description: "{{ doc('campaign_name') }}"
+      - name: state_name
+        description: The state where the campaign content was served.
+      - name: customer_currency_code
+        description: The currency of the spend reported.
+      - name: clicks
+        description: "{{ doc('clicks') }}"
+      - name: spend
+        description: "{{ doc('cost') }}"
+      - name: impressions
+        description: "{{ doc('impressions') }}"
+      - name: sync_source
+        description: Whether the record originated from the historical BPI backfill or from the ACLU Fivetran sync.
