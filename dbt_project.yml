@@ -1,7 +1,8 @@
 name: 'google_ads'
-version: '0.8.0'
+version: '0.9.1'
+
 config-version: 2
-require-dbt-version: [">=1.0.0", "<2.0.0"]
+require-dbt-version: [">=1.3.0", "<2.0.0"]
 models:
   google_ads:
     schema: dw_marketing
@@ -21,7 +22,6 @@ vars:
     campaign_network_state_stats: "{{ ref('stg_google_ads__campaign_network_state_stats') }}"
 
   google_auto_tagging_enabled: false
-
   google_ads__ad_group_stats_passthrough_metrics: []
   google_ads__ad_stats_passthrough_metrics: []
   google_ads__campaign_stats_passthrough_metrics: []
