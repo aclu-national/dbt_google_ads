@@ -40,7 +40,6 @@ fields as (
         stats.date_day,
         accounts.account_name,
         accounts.account_id,
-        accounts.currency_code,
         campaigns.campaign_name,
         campaigns.campaign_id,
         ad_groups.ad_group_name,
@@ -84,11 +83,9 @@ fields as (
     left join accounts
         on campaigns.account_id = accounts.account_id
 
-    {% if var('ad_reporting__url_report__using_null_filter', True) %}
-        where ads.source_final_urls is not null
-    {% endif %}
-
-    {{ dbt_utils.group_by(17) }}
+    -- We only want utm ads to populate this report. Therefore, we filter where url ads are populated.
+    where ads.source_final_urls is not null
+    {{ dbt_utils.group_by(16) }}
 )
 
 select *

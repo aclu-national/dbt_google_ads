@@ -40,7 +40,6 @@ fields as (
         stats.date_day,
         accounts.account_name,
         stats.account_id,
-        accounts.currency_code,
         campaigns.campaign_name,
         stats.campaign_id,
         ad_groups.ad_group_name,
@@ -65,7 +64,7 @@ fields as (
         on stats.campaign_id = campaigns.campaign_id
     left join accounts
         on stats.account_id = accounts.account_id
-    {{ dbt_utils.group_by(13) }}
+    {{ dbt_utils.group_by(12) }}
 )
 
 select *
